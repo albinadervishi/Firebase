@@ -6,3 +6,5 @@ class Student {
         this.age= age;
     }
 }
+
+module.exports= Student;
