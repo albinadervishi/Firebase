@@ -63,9 +63,20 @@ const updateStudent = async (req, res, next) => {
     }
 }
 
+const deleteStudent = async (req, res, next) => {
+    try{
+        const id = req.params.id;
+        await firestore.collection('students').doc(id).delete();
+        res.send('Deleted')
+    }catch (error){
+        res.status(4000).send(error.message);
+    }
+}
+
 module.exports = {
     addStudent,
     getAllStudents,
     getStudent,
-    updateStudent
+    updateStudent,
+    deleteStudent
 }
